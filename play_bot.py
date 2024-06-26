@@ -18,7 +18,7 @@ def flatten(boardClass):
     return fen
 
 # Load the saved model
-model = load_model('connect4_256x1_model.h5')
+model = load_model('connect4_2048x1_model.h5')
 
 noPce = 0
 red = 1

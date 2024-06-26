@@ -4,14 +4,14 @@ from sklearn.model_selection import train_test_split
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.callbacks import EarlyStopping
-from connect import *  # Assuming this contains the function parse_board and stdBoard
+from connect import * 
 
 # Initialize empty lists
 states = []
 wdl = []
 
 # CSV file path
-file_name = 'connect4_depth2_openingsd4nostart.csv'
+file_name = 'connect4_depth2_openingsd6nostart.csv'
 
 # Read data from CSV file
 with open(file_name, 'r', newline='') as csvfile:
@@ -42,7 +42,7 @@ x_train, x_test, y_train, y_test = train_test_split(x_train, y_train, test_size=
 
 # Define the neural network model
 model = Sequential([
-    Dense(512, activation='sigmoid', input_shape=(42,)),  # 16 hidden nodes
+    Dense(256, activation='sigmoid', input_shape=(42,)),  # 16 hidden nodes
     Dense(1, activation='sigmoid')  # 1 output node
 ])
 
@@ -69,3 +69,6 @@ model.save('connect4_512x1_model.h5')
 # Best acc x128x1: 0.6948 (0.6884)
 # Best acc x256x1: 0.7274 (0.7176)
 # Best acc x512x1: 0.7171 (0.7094)
+
+# D6 Opening Data
+# Best acc x256x1: 
